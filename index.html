@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunnydale Solutions - Feedback</title>
+</head>
+<body>
+    <h1>Sunnydale Solutions</h1>
+    <h2>Customer Feedback Form</h2>
+
+    <div id="error-box"></div>
+
+    <form id="feedback-form" novalidate>
+        <label for="reviewer-name">Reviewer Name:</label>
+        <input type="text" id="reviewer-name" name="reviewer-name">
+        <br><br>
+
+        <label for="rating">Star Rating:</label>
+        <select id="rating" name="rating">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5" selected>5 Stars</option>
+        </select>
+        <br><br>
+
+        <label for="comments">Feedback Comments:</label>
+        <br>
+        <textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+        <br><br>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("feedback-form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("reviewer-name").value;
+            const rating = document.getElementById("rating").value;
+            const comments = document.getElementById("comments").value;
+
+            console.log("Reviewer Name:", name);
+            console.log("Rating:", rating);
+            console.log("Comments:", comments);
+        });
+    </script>
+</body>
+</html>
