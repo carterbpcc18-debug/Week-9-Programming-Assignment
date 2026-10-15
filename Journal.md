@@ -36,3 +36,18 @@ Cookies may be preferable when information needs to be sent automatically to a s
 
 Testing and challenges
 I tested the successful submission flow using a valid name, a 5-star rating, and comments containing "wonderful". The expected behavior is that the success receipt appears, the form is hidden, and the reviewer's name is stored in localStorage. After refreshing the page, the saved name should appear in the welcome-back message and be pre-filled in the form.
+
+
+
+Phase 4: Validation & Reflection
+
+What edge cases or unexpected behaviors did I encounter while testing?
+Everything worked as expected during testing. The form displayed all three validation errors when submitted empty. It also correctly identified invalid ratings and comments that did not include the word "wonderful". The keyword validation worked regardless of capitalization.
+When I submitted a valid review, the success message appeared, the form cleared and was hidden, and the reviewer's name was saved in localStorage. After refreshing the page, the welcome-back message appeared and the saved name was pre-filled in the name field. I did not encounter any unexpected behavior during testing.
+
+AI review and constructor logic
+I reviewed the JavaScript event handling, validation rules, error messages, and localStorage functionality. The implementation uses event.preventDefault() to stop the browser's default submission behavior, checks all three validation requirements, and prevents the success message from appearing when errors are present.
+The code also uses localStorage to save and retrieve the reviewer's name. This allows the application to greet returning reviewers without needing a backend server. The validation and storage logic work together to provide the expected behavior.
+
+Final verification
+The final program successfully demonstrated client-side form submission, validation, error messaging, successful submission feedback, and localStorage persistence. The required test cases behaved as expected, and the returning-reviewer welcome message appeared after refreshing the page. The assignment requirements were met without requiring additional changes.
