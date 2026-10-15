@@ -22,3 +22,17 @@ I chose to display all applicable errors at once in the error container. This he
 
 Testing and challenges
 I tested an empty form and verified that all three validation messages appeared. I also tested a 4-star rating and comments that did not contain "wonderful" to check that the appropriate errors appeared. The validation logic was designed to accept the word regardless of capitalization, such as "Wonderful" or "WONDERFUL".
+
+
+
+Phase 3: Successful Submission and Local Storage State
+
+What did I accomplish?
+I added a success message that appears when all validation rules pass. The reviewer's name is saved in localStorage under the key "reviewerName". After a successful submission, the form is cleared and hidden. When the page is loaded again, the saved name is retrieved, displayed in a welcome-back message, and placed back into the name field.
+
+Why use localStorage instead of cookies?
+localStorage is convenient for client-side state because it provides a simple way to store and retrieve data using JavaScript. The data remains available across page reloads and browser sessions without having to include it in every HTTP request.
+Cookies may be preferable when information needs to be sent automatically to a server, such as for session management. Cookies also support settings related to expiration and security. For this assignment, localStorage is a suitable choice because the application only needs to remember the reviewer's name in the browser.
+
+Testing and challenges
+I tested the successful submission flow using a valid name, a 5-star rating, and comments containing "wonderful". The expected behavior is that the success receipt appears, the form is hidden, and the reviewer's name is stored in localStorage. After refreshing the page, the saved name should appear in the welcome-back message and be pre-filled in the form.
