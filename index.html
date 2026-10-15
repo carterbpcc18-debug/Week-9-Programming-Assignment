@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunnydale Solutions - Feedback</title>
+    <style>
+        #error-box {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
     <h1>Sunnydale Solutions</h1>
     <h2>Customer Feedback Form</h2>
 
-    <div id="error-box"></div>
+    <div id="error-box" role="alert"></div>
 
     <form id="feedback-form" novalidate>
         <label for="reviewer-name">Reviewer Name:</label>
@@ -36,13 +42,38 @@
 
     <script>
         const form = document.getElementById("feedback-form");
+        const errorBox = document.getElementById("error-box");
 
         form.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            const name = document.getElementById("reviewer-name").value;
-            const rating = document.getElementById("rating").value;
+            errorBox.innerHTML = "";
+
+            const name = document.getElementById("reviewer-name").value.trim();
+            const rating = Number(document.getElementById("rating").value);
             const comments = document.getElementById("comments").value;
+
+            const errors = [];
+
+            if (name === "") {
+                errors.push("Please provide your name.");
+            }
+
+            if (rating !== 5) {
+                errors.push("Our company standard requires a 5-star rating.");
+            }
+
+            if (!comments.toLowerCase().includes("wonderful")) {
+                errors.push("Comments must include the word 'wonderful'.");
+            }
+
+            if (errors.length > 0) {
+                errorBox.innerHTML =
+                    "<ul>" +
+                    errors.map(error => "<li>" + error + "</li>").join("") +
+                    "</ul>";
+                return;
+            }
 
             console.log("Reviewer Name:", name);
             console.log("Rating:", rating);

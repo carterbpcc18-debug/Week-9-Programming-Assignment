@@ -9,3 +9,16 @@ If I forget to call event.preventDefault(), the browser will perform its default
 
 Testing and challenges
 I tested the form by entering a name, selecting a rating, and writing comments. The browser console displayed the entered values, and the page did not refresh after submission. This confirmed that the submit event listener was working as expected.
+
+
+
+Phase 2: Form Validation and Error Messaging
+
+What validation approach did I take?
+I used an array called errors to collect validation messages. I checked whether the name was empty after trimming whitespace, whether the rating was exactly 5, and whether the comments contained the word "wonderful" without considering capitalization.
+
+Did I display errors all at once or one at a time?
+I chose to display all applicable errors at once in the error container. This helps users understand everything they need to correct without repeatedly submitting the form. One disadvantage is that multiple messages can make the form look busy, but for this assignment, showing all errors together is more helpful than revealing them one at a time.
+
+Testing and challenges
+I tested an empty form and verified that all three validation messages appeared. I also tested a 4-star rating and comments that did not contain "wonderful" to check that the appropriate errors appeared. The validation logic was designed to accept the word regardless of capitalization, such as "Wonderful" or "WONDERFUL".
